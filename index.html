@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <link rel="shortcut icon" href="img/favicon.jpg" />
     <title>Battlegrounds</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
   </head>
   <body>
-    Aqui vai o código HTML que fará seu site aparecer.
+    <section>
+      <audio src="/img/sound.wav" autostart="false"></audio>
+    </section>
+    <script>
+        document.addEventListener('click', function(e){
+            let body = document.querySelector('body');
+            let bullet = document.createElement('span');
+            bullet.classList.add('bullet');
+            let x = e.offsetX;
+            let y = e.offsetY;
+            bullet.styles.left = x+'px'; 
+            bullet.styles.top = y+'px';
+            body.appendChild(bullet);
+
+            //remove as balas depois de 4 segundos
+            setTimeout(function() {
+              bullet.remove();
+            }, 4000);
+
+            //adicioando o som da bala ao clicar
+            let sound = document.getElementById('audio');
+            sound.play();
+
+            //aparece sangue na tela após clique
+            //adicinar sangue na imagem
+            let images = [
+              'url("blood1.png")',
+              'url("blood2.png")',
+              'url("blood3.png")',
+              'url("blood4.png")',
+            ]
+
+            let blood= document.createElement('span');
+            blood.classList.add('blood');
+
+            let bg = images[Math.floor(Math.random() * images.length)];
+            blood.style.backgroundImage = bg;
+
+            blood.style.left = Math.random() * innerWidth + 'px';
+            blood.style.top = Math.random() * innerHeight + 'px';
+            body.appendChild(blood);
+
+
+            //Remove as balas e o sangue em 4 segundos
+            setTimeout(function() {
+              bullet.remove();
+              blood.remove();
+            }, 4000);
+        })
+    </script>
   </body>
 </html> 

@@ -1,0 +1,61 @@
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;*/
+}
+
+body {
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(img/bg.png);
+    background-size: cover;
+    background-position: center;
+    cursor: url('img/aim.png'), pointer;
+}
+
+section:active {
+    cursor: url('img/aim_red.png'), pointer;
+}
+
+.bullet {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(img/hole.png);
+    pointer-events: none;
+    transform: translate(30px, 30px);
+}
+
+.blood {
+    position: absolute;
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    background-size: cover;
+    z-index: 1000;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 4s linear infinite;
+}
+
+@keyframes fadeOut {
+    0%, 50%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+
